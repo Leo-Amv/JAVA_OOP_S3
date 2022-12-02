@@ -4,7 +4,6 @@ import ru.gb.oseminar3.controller.Controller;
 import ru.gb.oseminar3.data.Student;
 import ru.gb.oseminar3.data.Teacher;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -14,13 +13,10 @@ public class Main {
         controller.createStudent("Petr","Petrov","Petrovich");
         controller.createStudent("Alexandr","Alexandrov","Alexandrovich");
         controller.createTeacher("Andrey","Andreev","Andreevich");
-        controller.createTeacher("Viktoria","Viktorova","Viktorovna");
+
         System.out.println("-------------");
-        Teacher teacher = new Teacher("Andrey","Andreev","Andreevich",13L);
-        List<Student> studentList = Arrays.asList(
-                new Student("Ivan","Ivanov","Ivanovich",9L),
-                new Student("Petr","Petrov","Petrovich",8L),
-                new Student("Alexandr","Alexandrov","Alexandrovich",7L));
+        List<Student> studentList = controller.getStudents();
+        Teacher teacher = controller.createTeacher("Viktoria","Viktorova","Viktorovna");
         controller.createStudyGroup(teacher,studentList);
     }
 }

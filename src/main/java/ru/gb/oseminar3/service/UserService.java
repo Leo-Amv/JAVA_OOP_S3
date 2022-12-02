@@ -17,7 +17,7 @@ public class UserService implements DataService {
     }
 
     @Override
-    public void createStudent(String firstName, String lastName, String patronymic) {
+    public Student createStudent(String firstName, String lastName, String patronymic) {
         for (User user : this.users) {
             if (user instanceof Student) {
                 if (this.userId < ((Student) user).getStudentId()) {
@@ -25,9 +25,11 @@ public class UserService implements DataService {
                 }
             }
         }
-        this.users.add(new Student(firstName, lastName, patronymic, ++userId));
+        Student student = new Student(firstName, lastName, patronymic, ++userId);
+        this.users.add(student);
+        return student;
     }
-    public void createTeacher(String firstName, String lastName, String patronymic) {
+    public Teacher createTeacher(String firstName, String lastName, String patronymic) {
 
         for (User user : this.users) {
             if (user instanceof Teacher) {
@@ -36,7 +38,9 @@ public class UserService implements DataService {
                 }
             }
         }
-        this.users.add(new Teacher(firstName, lastName, patronymic, ++userId));
+        Teacher teacher = new Teacher(firstName, lastName, patronymic, ++userId);
+        this.users.add(teacher);
+        return teacher;
     }
 
     @Override
@@ -45,22 +49,22 @@ public class UserService implements DataService {
     }
 
     @Override
-    public List<User> getStudents() {
-        List<User> studentsList = new ArrayList<>();
+    public List<Student> getStudents() {
+        List<Student> studentsList = new ArrayList<>();
         for (User user:this.users) {
             if (user instanceof Student){
-                studentsList.add(user);
+                studentsList.add((Student)user);
             }
         }
         return studentsList;
     }
 
     @Override
-    public List<User> getTeachers() {
-        List<User> teachersList = new ArrayList<>();
+    public List<Teacher> getTeachers() {
+        List<Teacher> teachersList = new ArrayList<>();
         for (User user:this.users) {
             if (user instanceof Teacher){
-                teachersList.add(user);
+                teachersList.add((Teacher)user);
             }
         }
         return teachersList;
