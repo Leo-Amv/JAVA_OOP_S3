@@ -16,13 +16,13 @@ public class StudyGroupService {
         this.studyGroups = new ArrayList<>();
     }
 
-    public List<User> createStudyGroup(Teacher teacher, List<Student> studentList){
+    public StudyGroup createStudyGroup(Teacher teacher, List<Student> studentList){
         StudyGroup studyGroup = new StudyGroup(teacher,studentList,++studyGroupId);
         this.studyGroups.add(studyGroup);
-        List<User> result = new ArrayList<>();
-        result.add(studyGroup.teacher);
-        result.addAll(studyGroup.studentList);
-        return result;
+        for (Student student:studentList) {
+            student.setStudyGroupId(studyGroup.getStudyGroupId());
+        }
+        return studyGroup;
     }
 
     public List<StudyGroup> getStudyGroups() {
