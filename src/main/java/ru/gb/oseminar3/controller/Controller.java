@@ -45,13 +45,11 @@ public class Controller {
         studyGroupView.sendOnConsoleStudyGroups(studyGroups);
     }
     public void sendOnConsoleSortStudyGroup(List<Student> students){
-        students.sort(new Comparator<Student>() {
-            public int compare(Student s1, Student s2) {
-                if (s1.getLastName().equalsIgnoreCase(s2.getLastName())){
-                    return s1.getFirstName().compareTo(s2.getFirstName());
-                }
-                return s1.getLastName().compareTo(s2.getLastName());
+        students.sort((s1, s2) -> {
+            if (s1.getLastName().equalsIgnoreCase(s2.getLastName())){
+                return s1.getFirstName().compareTo(s2.getFirstName());
             }
+            return s1.getLastName().compareTo(s2.getLastName());
         });
         userView.sendOnConsoleStudents(students);
     }
