@@ -8,20 +8,16 @@ import java.util.List;
 import java.util.logging.Logger;
 
 public class UserView {
-    public void sendOnConsoleStudents(List<Student> users) {
+    public void sendOnConsoleStudents(List<Student> students) {
         Logger log = Logger.getAnonymousLogger();
-        for (User user : users) {
-            if (user instanceof Student){
-                log.info(user.toString());
-            }
+        for (Student student : students) {
+            log.info(student.toString());
         }
     }
-    public void sendOnConsoleTeachers(List<Teacher> users) {
+    public void sendOnConsoleTeachers(List<Teacher> teachers) {
         Logger log = Logger.getAnonymousLogger();
-        for (User user : users) {
-            if (user instanceof Teacher){
-                log.info(user.toString());
-            }
+        for (Teacher teacher : teachers) {
+            log.info(teacher.toString());
         }
     }
     public void sendOnConsoleUsers(List<User> users) {

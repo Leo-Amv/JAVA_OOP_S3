@@ -40,7 +40,8 @@ public class StudyGroup {
     @Override
     public String toString() {
         return "StudyGroup{" +
-                "teacher=" + teacher +
+                "studyGroupId=" + studyGroupId +
+                ", teacher=" + teacher +
                 ", studentList=" + studentList +
                 '}';
     }
