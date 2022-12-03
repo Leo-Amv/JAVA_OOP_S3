@@ -10,6 +10,7 @@ public class Main {
     public static void main(String[] args) {
         Controller controller = new Controller();
         controller.createStudent("Ivan","Ivanov","Ivanovich");
+        controller.createStudent("Avan","Ivanov","Ivanovich");
         System.out.println("-------------");
         controller.createStudent("Petr","Petrov","Petrovich");
         System.out.println("-------------");
